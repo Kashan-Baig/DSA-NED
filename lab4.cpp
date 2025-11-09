@@ -107,7 +107,7 @@ int main(){
 // Q1 
 // checkpallindrome("nagan");
 // Q2
-// cout<<check("ab#c","ad#c");
+cout<<check("wx#z","wy#z");
 // Q3
 // vector<int> nums = {1,2,3};
 //     vector<vector<int>> ans = permute(nums);
@@ -117,14 +117,14 @@ int main(){
 //         cout << "]\n";
 //     }
 // Q4
- vector<vector<char>> board = {
-        {'A','B','C','E'},
-        {'S','F','C','S'},
-        {'A','D','E','E'}
-    };
-    string word = "ABCCED";
+//  vector<vector<char>> board = {
+//         {'A','B','C','E'},
+//         {'S','F','C','S'},
+//         {'A','D','E','E'}
+//     };
+//     string word = "ABCCED";
 
-    cout << (exist(board, word) ? "true" : "false") << endl;
+//     cout << (exist(board, word) ? "true" : "false") << endl;
 
     return 0;
 }
