@@ -1,5 +1,6 @@
 #include <iostream>
 #include <vector>
+#include <stack>
 #include <queue>
 using namespace std;
 
@@ -14,6 +15,45 @@ class node{
         left = right = nullptr;
     }
 };
+void stackpre(node* root){
+    if(root==nullptr){
+        return;
+    }
+    stack <node*> st;
+    st.push(root);
+
+    while(!st.empty()){
+        node* curr = st.top();
+        st.pop();
+
+        cout<<curr->data;
+
+        if(curr->left) st.push(curr->left);
+        if(curr->right) st.push(curr->right);
+    }
+}
+void stackpost(node* root){
+    if(root==nullptr) return;
+    stack <node*> st1,st2;
+    st1.push(root);
+
+    while(!st1.empty()){
+        node* curr = st1.top();
+        st1.pop();
+        st2.push(curr);
+
+        if(curr->left) st1.push(curr->left);
+        if(curr->right) st1.push(curr->right);
+    }
+        
+    while(!st2.empty()){
+        cout<<st2.top()->data<<" ";
+        st2.pop();
+    }
+}
+
+
+
 static int idx = -1 ;
 node* buildtree(vector<int> preorder){
     idx++;
@@ -57,6 +97,7 @@ void postorder(node* root){
     cout<<root->data<<" ";
     
 }
+
 void levelorder(node* root){
     queue <node*> q;
     q.push(root);
@@ -84,12 +125,12 @@ int main(){
     vector<int> pre = {5, 3, 8, 2, 4, 6, 9, 1};
 
     node* root = buildtree(pre);
-    preorder(root);
+    stackpost(root);
     cout<<endl;
-    inorder(root);
-    cout<<endl;
+    // preorder(root);
+    // cout<<endl;
     postorder(root);
     cout<<endl;
-    levelorder(root);
+    // levelorder(root);
 
 }
